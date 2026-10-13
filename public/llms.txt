@@ -7,6 +7,12 @@
 - [Русский](https://pulse.hubba-cloud.ru/)
 - [Installation](https://pulse.hubba-cloud.ru/en/install/)
 - [Modules](https://pulse.hubba-cloud.ru/en/modules/)
+- [Practical guides](https://pulse.hubba-cloud.ru/en/guides/)
+- [Linux setup](https://pulse.hubba-cloud.ru/en/guides/linux-server-monitoring/)
+- [Windows agent](https://pulse.hubba-cloud.ru/en/guides/windows-server-monitoring/)
+- [Multiple servers](https://pulse.hubba-cloud.ru/en/guides/multiple-server-monitoring/)
+- [Docker metrics](https://pulse.hubba-cloud.ru/en/guides/docker-container-monitoring/)
+- [Process memory](https://pulse.hubba-cloud.ru/en/guides/high-memory-processes/)
 
 ## Source and documentation
 - [Monitor](https://github.com/HubbaBubbaPrepod/pulse-monitor)

@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile,access} from 'node:fs/promises';
 import {pages,origin,url,metadata} from '../lib/site.js';
+import {guideContent,publicationDate} from '../lib/guides.js';
 for (const lang of ['ru','en']) for (const slug of pages) {
   test(`${lang} ${slug || 'home'}: static content and SEO`,async()=>{
     const path=`out${url(lang,slug)}index.html`;
@@ -14,6 +15,17 @@ for (const lang of ['ru','en']) for (const slug of pages) {
     assert.match(html,/<meta property="og:image"/);
     const json=html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s);
     assert.ok(json);assert.ok(JSON.parse(json[1])['@graph'].length>=3);
+    if(slug.startsWith('guides/')){
+      const guide=guideContent[slug.slice(7)][lang];
+      const graph=JSON.parse(json[1])['@graph'];
+      const article=graph.find(item=>item['@type']==='TechArticle');
+      assert.equal(article.headline,guide.title);
+      assert.equal(article.inLanguage,lang);
+      assert.equal(article.dateModified,publicationDate);
+      assert.ok(article.author.url.startsWith('https://github.com/'));
+      guide.sections.forEach((section,i)=>assert.ok(html.includes('id="step-'+(i+1)+'"')));
+      assert.equal(graph.find(item=>item['@type']==='BreadcrumbList').itemListElement.at(-1).item,origin+url(lang,slug));
+    }
     assert.ok(html.includes('PULSE'));assert.ok(html.length<2_000_000);
     const links=[...html.matchAll(/(?:href|src)="(\/(?!\/)[^"?#]*)/g)].map(match=>match[1]);
     for (const link of new Set(links)) {

@@ -46,3 +46,7 @@ The current catalog lists the independent Docker module. User submissions requir
 ## License
 
 [MIT](LICENSE). Dependencies retain their respective licenses.
+
+## Guides and changes
+
+`/guides/` and `/en/guides/` contain six practical guides. Content and publication dates live in `lib/guides.js`; the template is `components/Guides.jsx`. Update article dates when the instructions change, not on every build. Check commands against the documented release. See [CHANGELOG.md](CHANGELOG.md).
