@@ -18,3 +18,20 @@ body{overflow-x:clip}.header{background:color-mix(in srgb,var(--bg) 88%,transpar
 @media(max-width:1050px){.guide-grid{grid-template-columns:1fr 1fr}.guide-layout{grid-template-columns:200px 1fr;gap:35px}}
 @media(min-width:761px) and (max-width:1000px){.menu{display:block}.header-tools{margin-left:auto}.nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--bg);padding:24px;margin:0;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}.nav.open{display:flex}}
 @media(max-width:760px){.guide-grid,.guide-layout{grid-template-columns:1fr;gap:22px}.guide-toc{position:static;margin-top:0}.guide-card{padding:25px}.guide-prose h2{font-size:28px}.article-meta{font-size:11px}.guide-prose{padding-bottom:45px}}
+/* Native scrollbars follow the active theme, including nested overflow areas. */
+html{scrollbar-gutter:stable}
+*{scrollbar-width:thin;scrollbar-color:var(--muted) var(--bg)}
+@supports selector(::-webkit-scrollbar){
+  *{scrollbar-width:auto;scrollbar-color:auto}
+  ::-webkit-scrollbar{width:12px;height:12px}
+  ::-webkit-scrollbar-track,::-webkit-scrollbar-corner{background:var(--bg)}
+  ::-webkit-scrollbar-thumb{background:var(--muted);border:3px solid var(--bg);border-radius:999px;min-height:40px;background-clip:padding-box}
+  ::-webkit-scrollbar-thumb:hover,::-webkit-scrollbar-thumb:active{background-color:var(--fg)}
+  ::-webkit-scrollbar-button{display:none}
+}
+@media(forced-colors:active){
+  *{scrollbar-width:auto;scrollbar-color:auto}
+  ::-webkit-scrollbar-track,::-webkit-scrollbar-corner{background:Canvas}
+  ::-webkit-scrollbar-thumb{background:CanvasText;border-color:Canvas}
+  ::-webkit-scrollbar-thumb:hover,::-webkit-scrollbar-thumb:active{background-color:Highlight}
+}

@@ -4,6 +4,8 @@
 
 ## Unreleased
 
+- Style native scrollbars with rounded monochrome thumbs, theme-aware colors and hover feedback; retain system high-contrast colors.
+
 - Fix route navigation scrolling to the footer by declaring smooth-scroll handling for Next.js in both language layouts.
 
 ## 1.1.0 — 2026-10-13
