@@ -1,0 +1,16 @@
+# Pulse
+
+> Open-source, self-hosted server monitoring for Linux and Windows. Go agents send resources, processes, connections and logs to the owner's Pulse Monitor. MIT license.
+
+## Website
+- [English](https://pulse.hubba-cloud.ru/en/)
+- [Русский](https://pulse.hubba-cloud.ru/)
+- [Installation](https://pulse.hubba-cloud.ru/en/install/)
+- [Modules](https://pulse.hubba-cloud.ru/en/modules/)
+
+## Source and documentation
+- [Monitor](https://github.com/HubbaBubbaPrepod/pulse-monitor)
+- [Agent](https://github.com/HubbaBubbaPrepod/pulse-agent)
+- [Docker module](https://github.com/HubbaBubbaPrepod/pulse-module-docker)
+
+This website is a public product website, not a hosted monitoring service. No user telemetry is collected here. Hardware metrics depend on operating system, permissions and drivers. Native module collectors must come from trusted authors. The module marketplace is planned; the current site lists the independent Docker module.

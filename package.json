@@ -1,0 +1,25 @@
+{
+  "name": "pulse-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 3095",
+    "build": "next build",
+    "lint": "eslint .",
+    "test": "node --test scripts/site.test.mjs"
+  },
+  "engines": { "node": ">=22" },
+  "license": "MIT",
+  "dependencies": {
+    "@gsap/react": "2.1.2",
+    "gsap": "3.15.0",
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.4.0"
+  }
+}
