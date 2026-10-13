@@ -2,6 +2,10 @@
 
 [Русский](CHANGELOG.ru.md) · **English**
 
+## Unreleased
+
+- Fix route navigation scrolling to the footer by declaring smooth-scroll handling for Next.js in both language layouts.
+
 ## 1.1.0 — 2026-10-13
 
 - Add six practical guides in Russian and English: Linux, Windows, multiple servers, Docker, process memory and custom modules.

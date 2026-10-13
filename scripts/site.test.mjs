@@ -8,6 +8,7 @@ for (const lang of ['ru','en']) for (const slug of pages) {
     const path=`out${url(lang,slug)}index.html`;
     const html=await readFile(path,'utf8');
     assert.match(html,new RegExp(`<html[^>]*lang="${lang}"`));
+    assert.match(html,/<html[^>]*data-scroll-behavior="smooth"/,"Next.js must disable smooth scrolling during route transitions");
     assert.equal((html.match(/<h1[\s>]/g)||[]).length,1);
     assert.ok(html.includes(`rel="canonical" href="${origin+url(lang,slug)}"`));
     for(const alternate of ['ru','en']) assert.ok(html.includes(`hrefLang="${alternate}" href="${origin+url(alternate,slug)}"`));
