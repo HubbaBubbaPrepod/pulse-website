@@ -50,3 +50,14 @@ The current catalog lists the independent Docker module. User submissions requir
 ## Guides and changes
 
 `/guides/` and `/en/guides/` contain six practical guides. Content and publication dates live in `lib/guides.js`; the template is `components/Guides.jsx`. Update article dates when the instructions change, not on every build. Check commands against the documented release. See [CHANGELOG.md](CHANGELOG.md).
+
+## Formatting
+
+Node.js 22.13+ is required for the development formatter. Install the pinned local version with `npm ci`. Node.js is not required to run the Go binaries.
+
+```shell
+npm run format
+npm run format:check
+```
+
+Prettier formats supported source files, JSON, CSS, Markdown and YAML. Go files use `gofmt`. Generated files, local data and verification files are excluded through `.prettierignore`. CI checks formatting before accepting changes.
