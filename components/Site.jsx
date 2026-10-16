@@ -451,30 +451,43 @@ export default function Site({ lang, slug }) {
       </Motion>
       <footer className="footer">
         <div className="container">
-          <div className="footer-inner">
-            <Link href={url(lang)} className="brand">
-              <Mark />
-              PULSE
-            </Link>
-            <div className="footer-links">
+          <div className="footer-grid">
+            <div className="footer-identity">
+              <Link href={url(lang)} className="brand">
+                <Mark />
+                PULSE
+              </Link>
+              <p>{legal.footer[lang].intro}</p>
+              <a href="mailto:support@hubba-cloud.ru">support@hubba-cloud.ru</a>
+            </div>
+            <nav className="footer-group" aria-label={legal.footer[lang].project}>
+              <h2>{legal.footer[lang].project}</h2>
               <Link href={url(lang, 'features')}>{t.nav[0]}</Link>
               <Link href={url(lang, 'modules')}>{t.catalog}</Link>
               <Link href={url(lang, 'install')}>{t.docs}</Link>
+              <Link href={url(lang, 'guides')}>{legal.footer[lang].guides}</Link>
+            </nav>
+            <nav className="footer-group" aria-label={legal.footer[lang].source}>
+              <h2>{legal.footer[lang].source}</h2>
               <a href={github + '/pulse-monitor'}>Monitor ↗</a>
               <a href={github + '/pulse-agent'}>Agent ↗</a>
               <a href={github + '/pulse-module-docker'}>Docker ↗</a>
-            </div>
+            </nav>
+            <nav
+              className="footer-group legal-footer-links"
+              aria-label={legal.labels[lang].navigation}
+            >
+              <h2>{legal.footer[lang].documents}</h2>
+              {Object.keys(legal.documents).map((key) => (
+                <Link key={key} href={url(lang, key)}>
+                  {legal.footer[lang].links[key]}
+                </Link>
+              ))}
+            </nav>
           </div>
           <div className="footer-note">
             <span>{t.license}</span>
             <span>{t.privacy}</span>
-            <nav className="legal-footer-links" aria-label={legal.labels[lang].navigation}>
-              {Object.entries(legal.documents).map(([key, value]) => (
-                <Link key={key} href={url(lang, key)}>
-                  {value[lang].title}
-                </Link>
-              ))}
-            </nav>
             <span>MADE FOR PEOPLE, BY PEOPLE.</span>
           </div>
         </div>

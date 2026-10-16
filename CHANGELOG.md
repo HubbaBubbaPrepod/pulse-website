@@ -4,6 +4,8 @@
 
 ## Unreleased
 
+- Restructure the footer into project, source and document columns; add numbered legal clauses and approved operator details.
+
 - Add public RU/EN privacy, terms, contact and security pages with document navigation; publish Marketplace moderation rules and sign-in policy links.
 
 - Style native scrollbars with rounded monochrome thumbs, theme-aware colors and hover feedback; retain system high-contrast colors.
