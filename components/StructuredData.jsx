@@ -1,3 +1,4 @@
+import { legal } from '../lib/legal.mjs';
 import { copy, url, github, origin, metadata } from '../lib/site';
 import { guideContent, publicationDate } from '../lib/guides';
 export default function StructuredData({ lang, slug }) {
@@ -39,7 +40,7 @@ export default function StructuredData({ lang, slug }) {
         github + '/pulse-agent',
       ),
     });
-  else
+  else if (!Object.hasOwn(legal.documents, slug))
     graph.push({
       '@type': 'SoftwareSourceCode',
       name: slug === 'modules/docker' ? 'Pulse Docker Module' : 'Pulse Monitor',

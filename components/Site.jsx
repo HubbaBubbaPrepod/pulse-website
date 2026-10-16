@@ -1,3 +1,5 @@
+import LegalPage from './LegalPage';
+import { legal } from '../lib/legal.mjs';
 import StructuredData from './StructuredData';
 import Guides, { GuideTeasers } from './Guides';
 import Link from 'next/link';
@@ -403,7 +405,9 @@ export default function Site({ lang, slug }) {
       <StructuredData lang={lang} slug={slug} />
       <Motion key={lang + slug}>
         <main id="main">
-          {slug === '' ? (
+          {Object.hasOwn(legal.documents, slug) ? (
+            <LegalPage lang={lang} document={slug} />
+          ) : slug === '' ? (
             <Home lang={lang} />
           ) : slug === 'guides' || slug.startsWith('guides/') ? (
             <Guides lang={lang} slug={slug} />
@@ -426,21 +430,23 @@ export default function Site({ lang, slug }) {
               <Architecture lang={lang} />
             </>
           )}
-          <section className="closing container" data-reveal>
-            <div className="eyebrow">PULSE / GET STARTED</div>
-            <h2>{t.closing}</h2>
-            <p>{t.closingIntro}</p>
-            <div className="actions">
-              <Link className="button" href={url(lang, 'install')}>
-                {t.install}
-                <span>→</span>
-              </Link>
-              <a className="button secondary" href={github + '/pulse-monitor'}>
-                {t.source}
-                <span>↗</span>
-              </a>
-            </div>
-          </section>
+          {!Object.hasOwn(legal.documents, slug) && (
+            <section className="closing container" data-reveal>
+              <div className="eyebrow">PULSE / GET STARTED</div>
+              <h2>{t.closing}</h2>
+              <p>{t.closingIntro}</p>
+              <div className="actions">
+                <Link className="button" href={url(lang, 'install')}>
+                  {t.install}
+                  <span>→</span>
+                </Link>
+                <a className="button secondary" href={github + '/pulse-monitor'}>
+                  {t.source}
+                  <span>↗</span>
+                </a>
+              </div>
+            </section>
+          )}
         </main>
       </Motion>
       <footer className="footer">
@@ -462,6 +468,13 @@ export default function Site({ lang, slug }) {
           <div className="footer-note">
             <span>{t.license}</span>
             <span>{t.privacy}</span>
+            <nav className="legal-footer-links" aria-label={legal.labels[lang].navigation}>
+              {Object.entries(legal.documents).map(([key, value]) => (
+                <Link key={key} href={url(lang, key)}>
+                  {value[lang].title}
+                </Link>
+              ))}
+            </nav>
             <span>MADE FOR PEOPLE, BY PEOPLE.</span>
           </div>
         </div>

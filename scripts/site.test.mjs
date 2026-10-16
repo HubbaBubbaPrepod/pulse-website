@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import { pages, origin, url, metadata } from '../lib/site.js';
 import { guideContent, publicationDate } from '../lib/guides.js';
+import { legal } from '../lib/legal.mjs';
 for (const lang of ['ru', 'en'])
   for (const slug of pages) {
     test(`${lang} ${slug || 'home'}: static content and SEO`, async () => {
@@ -23,6 +24,14 @@ for (const lang of ['ru', 'en'])
       const json = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s);
       assert.ok(json);
       assert.ok(JSON.parse(json[1])['@graph'].length >= 3);
+      if (Object.hasOwn(legal.documents, slug)) {
+        assert.match(html, /<article class="legal-page">/);
+        for (const section of legal.documents[slug][lang].sections)
+          assert.ok(html.includes(`id="${section.id}"`), 'Document sections must be rendered');
+        assert.ok(
+          !JSON.parse(json[1])['@graph'].some((item) => item['@type'] === 'SoftwareSourceCode'),
+        );
+      }
       if (slug.startsWith('guides/')) {
         const guide = guideContent[slug.slice(7)][lang];
         const graph = JSON.parse(json[1])['@graph'];

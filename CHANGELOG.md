@@ -4,6 +4,8 @@
 
 ## Unreleased
 
+- Add public RU/EN privacy, terms, contact and security pages with document navigation; publish Marketplace moderation rules and sign-in policy links.
+
 - Style native scrollbars with rounded monochrome thumbs, theme-aware colors and hover feedback; retain system high-contrast colors.
 
 - Fix route navigation scrolling to the footer by declaring smooth-scroll handling for Next.js in both language layouts.
