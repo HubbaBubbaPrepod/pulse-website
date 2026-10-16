@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-16 — Legal navigation and public policy
+
+- Link privacy and publishing references directly within document paragraphs.
+- Formalize operator contact wording and preserve published particulars.
+
 [Русский](CHANGELOG.ru.md) · **English**
 
 ## Unreleased
