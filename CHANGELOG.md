@@ -9,6 +9,8 @@
 
 ## Unreleased
 
+- Upgrade Next.js and its ESLint configuration to 16.4.2 for current security fixes.
+
 - Restructure the footer into project, source and document columns; add numbered legal clauses and approved operator details.
 
 - Add public RU/EN privacy, terms, contact and security pages with document navigation; publish Marketplace moderation rules and sign-in policy links.
