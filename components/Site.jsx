@@ -106,10 +106,10 @@ function Modules({ lang, heading = true }) {
         )}
         <p>{t.modulesIntro}</p>
         <div className="actions">
-          <Link className="button secondary" href={url(lang, 'modules')}>
+          <a className="button secondary" href={`https://marketplace.hubba-cloud.ru/${lang}/`}>
             {t.catalog}
             <span>↗</span>
-          </Link>
+          </a>
           <a
             className="text-link"
             href={

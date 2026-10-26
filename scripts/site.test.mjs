@@ -68,3 +68,16 @@ test('robots, sitemap and deployment domain', async () => {
     for (const slug of pages) assert.ok(sitemap.includes(origin + url(lang, slug)));
   await access('out/.nojekyll');
 });
+
+for (const lang of ['ru', 'en']) {
+  test(`${lang}: module catalog CTA opens the live marketplace`, async () => {
+    for (const slug of ['', 'modules']) {
+      const html = await readFile(`out${url(lang, slug)}index.html`, 'utf8');
+      const label = lang === 'ru' ? 'Каталог модулей' : 'Module catalog';
+      const links = [...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)];
+      const catalog = links.find(([, , body]) => body.includes(label));
+      assert.ok(catalog, 'Catalog CTA must exist');
+      assert.equal(catalog[1], `https://marketplace.hubba-cloud.ru/${lang}/`);
+    }
+  });
+}
