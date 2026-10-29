@@ -2,6 +2,10 @@ import Link from 'next/link';
 import { guideContent, guideSlugs, publicationDate } from '../lib/guides';
 import { url, github } from '../lib/site';
 const sourceURLs = {
+  'monitor-wasi': (lang) =>
+    github + '/pulse-monitor/blob/main/docs/MODULES-WASI' + (lang === 'en' ? '.en' : '') + '.md',
+  'marketplace-modules': (lang) =>
+    github + '/pulse-marketplace/blob/main/docs/module-v2' + (lang === 'en' ? '.en' : '') + '.md',
   'monitor-install': (lang) =>
     github + '/pulse-monitor/blob/main/docs/INSTALL' + (lang === 'en' ? '.en' : '') + '.md',
   'monitor-operations': (lang) =>
@@ -97,7 +101,7 @@ export default function Guides({ lang, slug }) {
           <span>·</span>
           <time dateTime={publicationDate}>{en ? 'October 13, 2026' : '13 октября 2026'}</time>
           <span>·</span>
-          <span>Monitor / Agent v0.4.0 · Docker v1.0.2</span>
+          <span>Monitor 0.7.0 · Agent 0.6.0 · Docker 3 WASI</span>
         </div>
       </section>
       <div className="container guide-layout">

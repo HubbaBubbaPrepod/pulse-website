@@ -366,12 +366,15 @@ function ModulePage({ lang, docker }) {
             </ul>
             <p>
               {en
-                ? 'Install the JSON package from a release through your monitor’s Modules page. Configure access to Docker on each selected server. The module collector executes native code: review the source and trust the author before installing.'
-                : 'Установи JSON-пакет релиза через страницу «Модули» своего монитора. Настрой доступ к Docker на каждом выбранном сервере. Коллектор выполняет нативный код: перед установкой проверь источник и автора.'}
+                ? 'Open the module in Marketplace, choose a compatible version and review its requested access. Docker 3 uses an isolated WASI component: the Agent broker reads Docker data and performs explicitly permitted container actions. Older native versions require full trust. You can also download the JSON and import it with Marketplace disabled.'
+                : 'Открой модуль в Marketplace, выбери совместимую версию и проверь запрашиваемый доступ. Docker 3 использует изолированный WASI-компонент: посредник агента читает данные Docker и выполняет явно разрешённые действия с контейнерами. Старые нативные версии требуют полного доверия. JSON можно скачать и импортировать при выключенном Marketplace.'}
             </p>
             <div className="actions">
-              <a className="button" href={github + '/pulse-module-docker/releases/latest'}>
-                {en ? 'Download module' : 'Скачать модуль'}
+              <a
+                className="button"
+                href={`https://marketplace.hubba-cloud.ru/${lang}/modules/HubbaBubbaPrepod/docker/`}
+              >
+                {en ? 'Open in Marketplace' : 'Открыть в Marketplace'}
                 <span>↗</span>
               </a>
               <a className="button secondary" href={github + '/pulse-module-docker'}>

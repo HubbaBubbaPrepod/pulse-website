@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-29 — Current module documentation and Marketplace links
+
+- Preserve button contrast inside prose in both themes.
+- Open the Docker Marketplace listing instead of GitHub's latest native release.
+- Update RU/EN module and Docker guides for WASI, broker grants, container actions and version moderation.
+- Explain optional Marketplace access and manual JSON installation.
+
 ## 2026-10-16 — Legal navigation and public policy
 
 - Link privacy and publishing references directly within document paragraphs.

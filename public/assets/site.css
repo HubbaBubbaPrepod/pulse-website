@@ -726,7 +726,7 @@ details p {
   color: var(--muted);
   margin: 15px 0;
 }
-.prose a {
+.prose a:not(.button) {
   color: var(--fg);
   border-bottom: 1px solid var(--line);
 }

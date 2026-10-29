@@ -70,6 +70,16 @@ test('robots, sitemap and deployment domain', async () => {
 });
 
 for (const lang of ['ru', 'en']) {
+  test(`${lang}: Docker installation opens its Marketplace listing`, async () => {
+    const html = await readFile(`out${url(lang, 'modules/docker')}index.html`, 'utf8');
+    const actions = html.match(/<div class="actions">([\s\S]*?)<\/div>/);
+    assert.ok(actions, 'Docker installation actions must exist');
+    assert.ok(
+      actions[1].includes(
+        `href="https://marketplace.hubba-cloud.ru/${lang}/modules/HubbaBubbaPrepod/docker/"`,
+      ),
+    );
+  });
   test(`${lang}: module catalog CTA opens the live marketplace`, async () => {
     for (const slug of ['', 'modules']) {
       const html = await readFile(`out${url(lang, slug)}index.html`, 'utf8');
