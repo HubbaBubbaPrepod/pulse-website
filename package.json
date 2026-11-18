@@ -23,7 +23,7 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "eslint": "^9.0.0",
+    "eslint": "^10.15.0",
     "eslint-config-next": "16.4.6",
     "prettier": "3.9.10"
   }
